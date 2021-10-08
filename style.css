@@ -1,0 +1,42 @@
+.flexContainer {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+}
+
+button,
+input {
+  margin: 10px;
+  width: 200px;
+  height: 30px;
+  border-radius: 10px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(16, 30px);
+  grid-template-rows: repeat(16, 30px);
+  gap: 4px;
+  justify-content: center;
+}
+
+.container > div {
+  background-color: aquamarine;
+}
+
+.container > div:hover {
+  background-color: black;
+}
+
+.canvas {
+  height: 95vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}

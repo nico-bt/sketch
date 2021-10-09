@@ -75,3 +75,8 @@ button:hover {
   justify-content: center;
   align-content: center;
 }
+
+.active {
+  background-color: black;
+  color: white;
+}

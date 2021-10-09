@@ -3,6 +3,7 @@ let canvaSize = document.querySelector("#canvaSize");
 let container = document.querySelector(".container");
 let clearBtn = document.querySelector("#clear");
 let divs = document.querySelectorAll(".container > div");
+let eraser = document.querySelector("#eraser");
 
 //Main function on start
 main();
@@ -28,8 +29,12 @@ function changeGridSize(e) {
 }
     
 //Pick pointer color and add color to canvas
+let colorPicker = document.querySelector("#colorPicker");
+colorPicker.addEventListener("input", addColor);
+
 function addColor() {
-    let colorPicker = document.querySelector("#colorPicker");
+    eraseModeOff();
+    //Pick new color
     divs = document.querySelectorAll(".container > div");
     divs.forEach((div) => {
         div.addEventListener("mouseover", (e) => {
@@ -47,4 +52,20 @@ function clear() {
             div.style.backgroundColor = "white";
         })
     }
+}
+
+//Eraser button
+eraser.addEventListener("click", eraseMode);
+
+function eraseMode() {
+    eraser.classList.add("active");
+    divs = document.querySelectorAll(".container > div");
+    divs.forEach((div) => {
+        div.addEventListener("mouseover", (e) => {
+            e.target.style.backgroundColor = "white";
+        })
+    })
+}
+function eraseModeOff() {
+    eraser.classList.remove("active");
 }

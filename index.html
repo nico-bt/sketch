@@ -7,14 +7,21 @@
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
+
 <body>
     <div class="flexContainer">
         
-        <div>
+        <div class="col1">
             <h1>Sketch</h1>
             <div class="options">
-                <label for="colorPicker">Select a color:</label>
-                <input type="color" id="colorPicker">
+                <div>
+                    <label for="colorPicker">Select a color:</label>
+                    <input type="color" id="colorPicker">
+                </div>
+                <div>
+                    <label for="canvaSize">Grid Size: </label>
+                    <input type="range" id="canvaSize" name="canvaSize" min="15" max="65" value="25">
+                </div>
                 <button id="clear">Clear</button>
             </div>
         </div>
@@ -23,33 +30,9 @@
             <div class="container">
             </div>
         </div>
+
     </div>
 
-    <script>
-        //Create Canvas
-        let container = document.querySelector(".container")
-        for (let index = 0; index < 256; index++) {
-            container.appendChild(document.createElement("div"))
-        }
-        
-        //Pick pointer color and add color to canvas
-        let colorPicker = document.querySelector("#colorPicker");
-        let divs = document.querySelectorAll(".container > div");
-        divs.forEach((div)=>{
-            div.addEventListener("mouseover", (e)=>{
-                e.target.style.backgroundColor=colorPicker.value;
-            })
-        })
-
-        //Clear canvas
-        let clearBtn = document.querySelector("#clear");
-        clearBtn.addEventListener("click", clearCanvas)
-
-        function clearCanvas() {
-            divs.forEach((div) => {
-                div.style.backgroundColor = "aquamarine";
-            })
-        }
-    </script>
+    <script src="logic.js"></script>
 </body>
 </html>
